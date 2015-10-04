@@ -1,4 +1,9 @@
+// conf.js
 exports.config = {
+  framework: 'jasmine2',
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['todo_spec.js']
-};
+  specs: ['todo_spec.js'],
+  capabilities: {
+    browserName: 'chrome'
+  }
+}
