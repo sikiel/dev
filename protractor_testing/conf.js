@@ -5,5 +5,6 @@ exports.config = {
   specs: ['todo_spec.js'],
   capabilities: {
     browserName: 'chrome'
-  }
+  },
+  params: require('./peopledata.json'),
 }

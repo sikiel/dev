@@ -1,9 +1,8 @@
 // spec.js
 describe('Protractor Demo App', function() {
-  /*var firstNumber = element(by.model('first'));
-  var secondNumber = element(by.model('second'));
-  var goButton = element(by.id('gobutton'));
-  var latestResult = element(by.binding('latest'));*/
+  var username = element(by.model('vm.username'));
+  var password = element(by.model('vm.password'));
+  var loginButton = element(by.css('.btn.btn-primary'));
 
   beforeEach(function() {
 	  //browser.ignoreSynchronization = true;
@@ -20,14 +19,16 @@ describe('Protractor Demo App', function() {
 		
 	it('should try to login', function()
 	{
-		element(by.model('vm.username'))
-		.sendKeys('agata');
-		element(by.model('vm.password'))
-		.sendKeys(123);
-		element(by.css('.btn.btn-primary'))
-		.click();
+		for(i = 0; i<browser.params.people.length; i++) {
+    
+		username.sendKeys(browser.params.people[i].username);
+		password.sendKeys(browser.params.people[i].password);
+		loginButton.click();
 		expect(element(by.binding('flash.message')).getText())
 		.toEqual('Username or password is incorrect');
+		username.clear();
+		password.clear();
+		}
 	});
 
   /*it('should add one and two', function() {
