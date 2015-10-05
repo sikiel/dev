@@ -1,8 +1,9 @@
 // spec.js
-describe('Protractor Demo App', function() {
+describe('Web login testing', function() {
   var username = element(by.model('vm.username'));
   var password = element(by.model('vm.password'));
   var loginButton = element(by.css('.btn.btn-primary'));
+  var registerButton = element(by.css('.btn.btn-link'));
 
   beforeEach(function() {
 	  //browser.ignoreSynchronization = true;
@@ -29,6 +30,33 @@ describe('Protractor Demo App', function() {
 		username.clear();
 		password.clear();
 		}
+	});
+	
+		it('should try to register', function()
+	{
+		registerButton.click();
+		  var name = element(by.model('vm.user.firstName'));
+		  var lastName = element(by.model('vm.user.lastName'));
+		  var registerUsername = element(by.model('vm.user.username'));
+		  var registerPassword = element(by.model('vm.user.password'));
+		  
+		name.sendKeys('a');
+		lastName.sendKeys('a');
+		registerUsername.sendKeys('a');
+		registerPassword.sendKeys('a');
+		element(by.buttonText('Register')).click();
+		
+		registerButton.click();
+		//browser.get('http://run.plnkr.co/plunks/tg25kr/#/register');
+		
+		name.sendKeys('a');
+		lastName.sendKeys('a');
+		registerUsername.sendKeys('a');
+		registerPassword.sendKeys('a');
+		element(by.buttonText('Register')).click();
+		expect(element(by.css('.ng-binding.ng-scope.alert.alert-danger')).getText())
+		.toEqual('Username "a" is already taken');
+		
 	});
 
   /*it('should add one and two', function() {
