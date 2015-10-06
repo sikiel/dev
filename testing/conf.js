@@ -8,6 +8,6 @@ exports.config = {
   },
   params: require('./peopledata.json'),
   allScriptsTimeout: 20000,
-  jasmineNodeOpts: {defaultTimeoutInterval: 70000},
+  jasmineNodeOpts: {defaultTimeoutInterval: 70000}
 
-}
+};

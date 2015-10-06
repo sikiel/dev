@@ -1,5 +1,5 @@
 {"zakupy":[
     {"nazwa":"opel", "kategoria":"Motoryzacja", "price_to":3000},
     {"nazwa":"piłka do nogi", "kategoria":"Sport"},
-    {"nazwa":"bluzka", "kategoria":"Moda i uroda"}
+    {"nazwa":"bluzka", "kategoria":"Moda i uroda", "price_from":100}
 ]}

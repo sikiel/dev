@@ -7,7 +7,7 @@ describe('Web login testing', function() {
 
   beforeEach(function() {
 	  //browser.ignoreSynchronization = true;
-	  browser.debugger()
+	  browser.debugger();
     browser.get('http://run.plnkr.co/plunks/tg25kr/');
   });
 
