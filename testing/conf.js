@@ -26,18 +26,5 @@ exports.config = {
   jasmineNodeOpts: {defaultTimeoutInterval: 70000}
 
 };
-//exports.config = {
-//		  framework: 'jasmine2',
-//		  seleniumAddress: 'http://localhost:4444/wd/hub',
-//		  specs: ['spec.js'],
-//		  capabilities: {
-//		       'browserName': 'chrome',
-//		       'chromeOptions': {
-//		       'args': ['show-fps-counter=true'],
-//		       'mobileEmulation' : {
-//		        'deviceName': 'Apple iPhone 6'
-//		       }
-//		   }
-//		  }
 
 

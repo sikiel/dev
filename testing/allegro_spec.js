@@ -1,4 +1,5 @@
 var listaZakupow = require('./zakupy.json');
+var test = require('./modul_test.js');
 describe('Testing allegro page',
 		function() {
 			var zaloguj = element(by.linkText('zaloguj'));
@@ -15,7 +16,18 @@ describe('Testing allegro page',
 			function set_params(i) {
 				for (property in i) {
 					if (property != "nazwa" & property != "kategoria") {
-						element(by.id(property)).sendKeys(i[property]);
+						if(property == "click"){
+							expect(element(by.xpath("//li[@class='popular']/a[@id='"+i[property]+"']")).isPresent()).toBe(true);
+							expect(element(by.xpath("//li[@class='popular checked']/a[@id='"+i[property]+"']")).isPresent()).toBe(false);
+							element(by.id(i[property])).click();
+							expect(element(by.xpath("//li[@class='popular']/a[@id='"+i[property]+"']")).isPresent()).toBe(false);
+							expect(element(by.xpath("//li[@class='popular checked']/a[@id='"+i[property]+"']")).isPresent()).toBe(true);
+							browser.driver.sleep(1000);
+						}else{
+							element(by.id(property)).sendKeys(i[property]);	
+							browser.driver.sleep(3000);
+							expect(browser.getCurrentUrl()).toMatch(property+"="+i[property]);
+						}
 						browser.driver.sleep(4);
 					}
 
@@ -80,8 +92,7 @@ describe('Testing allegro page',
 				expect(element(by.css('.alert.alert-danger')).isDisplayed())
 						.toBe(true);
 				expect(element(by.css('.errors')).isDisplayed()).toBe(true);
-			}
-			;
+			};
 
 			it('should login to max page', function() {
 
